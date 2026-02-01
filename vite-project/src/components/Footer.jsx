@@ -116,7 +116,7 @@ const Footer = () => {
         <div className="nav-section">
           <h4>Contato</h4>
           <p>
-            Av. Santos Dumont, 1510 - 1 <br /> 
+            Av. Santos Dumont, 1510 - 1 <br />
             andar - Aldeota, Fortaleza - <br />
             CE, 60150-161
           </p>

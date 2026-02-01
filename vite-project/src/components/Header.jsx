@@ -162,7 +162,7 @@ const NavContainer = styled.nav`
   }
 
   @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
     position: fixed;
     top: 0;
     left: 0;
@@ -179,7 +179,7 @@ const NavContainer = styled.nav`
 
 // Overlay opcional para escurecer o fundo quando o menu abrir
 const Overlay = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: fixed;
   top: 0;
   left: 0;
@@ -223,7 +223,7 @@ const Header = () => {
         {/* Ordem 3 (Mobile): Lupa que aparece só no mobile */}
         {/* Você pode fazer ela abrir um input ou apenas levar para a página de busca */}
         <MobileSearchIcon onClick={() => navigate('/products')}>
-          <img src={search} alt="search" clasName="search" />
+          <img src={search} alt="search" className="search" />
         </MobileSearchIcon>
 
         <div className="search-container">
@@ -251,9 +251,9 @@ const Header = () => {
       </HeaderContainer>
 
       {/* Overlay para fechar ao clicar fora do menu */}
-      <Overlay isOpen={isOpen} onClick={closeMenu} />
+      <Overlay $isOpen={isOpen} onClick={closeMenu} />
 
-      <NavContainer isOpen={isOpen}>
+      <NavContainer $isOpen={isOpen}>
         <ul>
           {/* Usamos o NavLink dentro da <li> para manter sua lógica de fechar o menu */}
           <li onClick={closeMenu}>

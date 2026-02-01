@@ -10,7 +10,7 @@ const SectionContainer = styled.section`
 const HeaderContainer = styled.div`
   display: flex;
   /* Alinha o conteúdo baseado na prop 'align' */
-  justify-content: ${(props) => (props.align === 'center' ? 'center' : 'space-between')};
+  justify-content: ${(props) => (props.$align === 'center' ? 'center' : 'space-between')};
   align-items: baseline;
   margin-bottom: 20px;
   position: relative;
@@ -21,9 +21,9 @@ const Title = styled.h2`
   font-size: 24px;
   font-weight: 700;
   margin: 0;
-  text-align: ${(props) => props.align};
+  text-align: ${(props) => props.$align};
   /* Se estiver centralizado, o título não deve 'empurrar' o link */
-  flex: ${(props) => (props.align === 'center' ? 'none' : '1')};
+  flex: ${(props) => (props.$align === 'center' ? 'none' : '1')};
 `;
 
 const StyledLink = styled.a`
@@ -45,9 +45,9 @@ const StyledLink = styled.a`
 const Section = ({ title, titleAlign = 'left', link, children }) => {
   return (
     <SectionContainer>
-      <HeaderContainer align={titleAlign}>
-        <Title align={titleAlign}>{title}</Title>
-        
+      <HeaderContainer $align={titleAlign}>
+        <Title $align={titleAlign}>{title}</Title>
+
         {/* Renderiza o link apenas se houver o objeto link e o título não estiver centralizado */}
         {link && titleAlign === 'left' && (
           <StyledLink href={link.href}>

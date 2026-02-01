@@ -27,7 +27,7 @@ const ImageContainer = styled.div`
   display: flex;
   height: 100%;
   transition: transform 0.4s ease-in-out;
-  transform: translateX(-${props => props.activeIndex * 100}%);
+  transform: translateX(-${props => props.$activeIndex * 100}%);
 `;
 
 const SlideImage = styled.img`
@@ -80,13 +80,13 @@ const ThumbImage = styled.img`
 `;
 
 // --- Componente Principal ---
-const Gallery = ({ 
-  images = [], 
-  width, 
-  height, 
-  radius, 
-  showThumbs, 
-  className 
+const Gallery = ({
+  images = [],
+  width,
+  height,
+  radius,
+  showThumbs,
+  className
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -103,28 +103,28 @@ const Gallery = ({
   return (
     <GalleryWrapper width={width} className={className}>
       <MainSlide height={height} radius={radius}>
-        <Arrow 
-          className="left" 
-          onClick={prevSlide} 
+        <Arrow
+          className="left"
+          onClick={prevSlide}
           disabled={activeIndex === 0}
         >
           <img src={ArrowLeft} alt="Anterior" />
         </Arrow>
 
-        <Arrow 
-          className="right" 
-          onClick={nextSlide} 
+        <Arrow
+          className="right"
+          onClick={nextSlide}
           disabled={activeIndex === images.length - 1}
         >
           <img src={ArrowRight} alt="Próximo" />
         </Arrow>
 
-        <ImageContainer activeIndex={activeIndex}>
+        <ImageContainer $activeIndex={activeIndex}>
           {images.map((img, index) => (
-            <SlideImage 
-              key={index} 
-              src={img.src} 
-              alt={`Slide ${index}`} 
+            <SlideImage
+              key={index}
+              src={img.src}
+              alt={`Slide ${index}`}
             />
           ))}
         </ImageContainer>
